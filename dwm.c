@@ -883,7 +883,7 @@ drawbar(Monitor *m) {
 		x += w;
 	}
 	w = blw = TEXTW(m->ltsymbol);
-	drw_setscheme(drw, &scheme[0]);
+	drw_setscheme(drw, &scheme[9]);
 	drw_text(drw, x, 0, w, bh, m->ltsymbol, 0);
         if(m->lt[m->sellt]->arrange == monocle) {
             for (c=nexttiled(m->clients), a=0, s=0; c; c=nexttiled(c->next), a++)
@@ -2533,11 +2533,11 @@ updatesystray(void) {
                 drw_setscheme(drw, &scheme[0]);
 		if(!(systray = (Systray *)calloc(1, sizeof(Systray))))
 			die("fatal: could not malloc() %u bytes\n", sizeof(Systray));
-		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, drw->scheme->bg->pix);
 		wa.event_mask        = ButtonPressMask | ExposureMask;
 		wa.override_redirect = True;
 		wa.background_pixmap = ParentRelative;
-		wa.background_pixel  = drw->scheme->bg->pix;
+		wa.background_pixel  = drw->scheme->fg->pix;
+		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, wa.background_pixel);
 		XSelectInput(dpy, systray->win, SubstructureNotifyMask);
 		XChangeProperty(dpy, systray->win, netatom[NetSystemTrayOrientation], XA_CARDINAL, 32,
 				PropModeReplace, (unsigned char *)&systrayorientation, 1);

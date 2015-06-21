@@ -21,7 +21,7 @@
     { MOD, XK_k,     ACTION##stack, {.i = INC(-1) } },
     
 static const unsigned int tagspacing = 2;       /* space between tags */
-static const unsigned int tagpadding = 35;      /* inner padding of tags */
+static const unsigned int tagpadding = 50;      /* inner padding of tags */
 static const unsigned int taglinepx = 2;        /* height of tag underline */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const Bool showsystray = True;           /* false means no systray */
@@ -43,6 +43,7 @@ static const char *fonts[] = {
 static const char dmenufont[] = "Meslo LG M for Powerline-8";
 static const char dwmpath[] = "/home/elken/.dwm/dwm";
 
+#ifdef SOLARIZED_DARK
 static const char colors[NUMCOLORS][ColLast][13] = {
     /* border    fg         bg */
     { "#286e75", "#286e75", "#002b36" },        /* [0]  01 - Client normal */
@@ -59,6 +60,26 @@ static const char colors[NUMCOLORS][ColLast][13] = {
     { "#286e75", "#dc322f", "#002b36" },        /* [11] 0C - Bar urgent*/
     { "#286e75", "#268bd2", "#002b36" },        /* [12] 0D - Bar occupied*/
 };
+#endif
+
+#ifdef SOLARIZED_LIGHT
+static const char colors[NUMCOLORS][ColLast][13] = {
+    /* border    fg         bg */
+    { "#93a1a1", "#93a1a1", "#fdf6e3" },        /* [0]  01 - Client normal */
+    { "#af8700", "#268bd2", "#fdf6e3" },        /* [1]  02 - Client selected */
+    { "#93a1a1", "#dc322f", "#fdf6e3" },        /* [2]  03 - Client urgent */
+    { "#93a1a1", "#93a1a1", "#fdf6e3" },        /* [3]  04 - Client occupied */
+    { "#fdf6e3", "#dc322f", "#fdf6e3" },        /* [4]  05 - Red */
+    { "#fdf6e3", "#af8700", "#fdf6e3" },        /* [5]  06 - Yellow */
+    { "#fdf6e3", "#859900", "#fdf6e3" },        /* [6]  07 - Green */
+    { "#fdf6e3", "#666666", "#fdf6e3" },        /* [7]  08 - Dark grey */
+    { "#fdf6e3", "#DCDCDC", "#fdf6e3" },        /* [8]  09 - Light grey */
+    { "#93a1a1", "#93a1a1", "#fdf6e3" },        /* [9]  0A - Bar normal*/
+    { "#268bd2", "#268bd2", "#fdf6e3" },        /* [10] 0B - Bar selected*/
+    { "#93a1a1", "#dc322f", "#fdf6e3" },        /* [11] 0C - Bar urgent*/
+    { "#93a1a1", "#268bd2", "#fdf6e3" },        /* [12] 0D - Bar occupied*/
+};
+#endif
 
 static const Layout layouts[] = {
     /* symbol   gaps    arrange */
@@ -86,19 +107,25 @@ static const Rule rules[] = {
         *	WM_NAME(STRING) = title
         */
     /* class            instance    title       tags mask   isfloating  monitor */
-    { "Iceweasel", 	NULL, 	    NULL,       1 << 1,     True,       -1 },
-    { "Firefox", 	NULL, 	    NULL,       1 << 1,     True,       -1 },
+    { "Iceweasel", 	NULL, 	    NULL,       1 << 1,     False,      -1 },
+    { "Firefox", 	NULL, 	    NULL,       1 << 1,     False,      -1 },
     { "Icedove",   	NULL,       NULL,       1 << 2,     False,      -1 },
     { "Thunderbird",   	NULL,       NULL,       1 << 2,     False,      -1 },
-    { "Google-chrome",  NULL,       NULL,       1 << 5,     True,       -1 },
+    { "Google-chrome",  NULL,       NULL,       1 << 5,     False,      -1 },
     { "Steam",		"Steam",    "Steam",    1 << 6,     False,      -1 },
     { "VirtualBox",     NULL,       NULL,       1 << 3,     False,      -1 },
-    { "Popcorntime",    NULL,       NULL,       1 << 5,     True,       -1 },
+    { "Popcorntime",    NULL,       NULL,       1 << 5,     False,      -1 },
     { "Transmission",   NULL,       NULL,       1 << 3,     False,      -1 }
 };
 
-//static const char *menu[] = { "dmenu_run", "-fn", font, "-nb", "#002b36", "-nf", "#568e75", "-sb", "#002b36", "-sf", "#268bd2", "-h", "22", NULL }; 
+#ifdef SOLARIZED_DARK
 static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#002b36", "-nf", "#568e75", "-sb", "#002b36", "-sf", "#268bd2", "-h", "22", NULL }; 
+#endif
+
+#ifdef SOLARIZED_LIGHT
+static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "-nf", "#93a1a1", "-sb", "#fdf6e3", "-sf", "#657b83", "-h", "22", NULL }; 
+#endif
+
 static const char *term[] = { "st", NULL };
 static const char *webb[] = { "iceweasel", NULL };
 static const char *mail[] = { "icedove", NULL };
