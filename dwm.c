@@ -2530,13 +2530,19 @@ updatesystray(void) {
 		return;
 	if(!systray) {
 		/* init systray */
-                drw_setscheme(drw, &scheme[0]);
+                drw_setscheme(drw, &scheme[9]);
 		if(!(systray = (Systray *)calloc(1, sizeof(Systray))))
 			die("fatal: could not malloc() %u bytes\n", sizeof(Systray));
 		wa.event_mask        = ButtonPressMask | ExposureMask;
 		wa.override_redirect = True;
 		wa.background_pixmap = ParentRelative;
-		wa.background_pixel  = drw->scheme->fg->pix;
+#ifdef SOLARIZED_LIGHT
+		wa.background_pixel  = drw->scheme->border->pix;
+#endif
+
+#ifdef SOLARIZED_DARK
+		wa.background_pixel  = drw->scheme->bg->pix;
+#endif
 		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, wa.background_pixel);
 		XSelectInput(dpy, systray->win, SubstructureNotifyMask);
 		XChangeProperty(dpy, systray->win, netatom[NetSystemTrayOrientation], XA_CARDINAL, 32,
