@@ -1,0 +1,56 @@
+--- dwm.c.orig	2015-06-20 23:52:20.532055531 +0100
++++ dwm.c	2015-06-20 23:55:11.244060243 +0100
+@@ -65,8 +65,8 @@ enum { NetSupported, NetWMName, NetWMSta
+        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
+        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
+ enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
+-enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
+-       ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
++enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkClientWin,
++       ClkRootWin, ClkLast };             /* clicks */
+ 
+ typedef union {
+ 	int i;
+@@ -445,10 +445,8 @@ buttonpress(XEvent *e) {
+ 		}
+ 		else if(ev->x < x + blw)
+ 			click = ClkLtSymbol;
+-		else if(ev->x > selmon->ww - TEXTW(stext))
+-			click = ClkStatusText;
+ 		else
+-			click = ClkWinTitle;
++			click = ClkStatusText;
+ 	}
+ 	else if((c = wintoclient(ev->window))) {
+ 		focus(c);
+@@ -752,15 +750,8 @@ drawbar(Monitor *m) {
+ 		x = m->ww;
+ 	if((w = x - xx) > bh) {
+ 		x = xx;
+-		if(m->sel) {
+-			drw_setscheme(drw, m == selmon ? &scheme[SchemeSel] : &scheme[SchemeNorm]);
+-			drw_text(drw, x, 0, w, bh, m->sel->name, 0);
+-			drw_rect(drw, x, 0, w, bh, m->sel->isfixed, m->sel->isfloating, 0);
+-		}
+-		else {
+-			drw_setscheme(drw, &scheme[SchemeNorm]);
+-			drw_text(drw, x, 0, w, bh, NULL, 0);
+-		}
++                drw_setscheme(drw, &scheme[SchemeNorm]);
++                drw_text(drw, x, 0, w, bh, NULL, 0);
+ 	}
+ 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
+ }
+@@ -1241,11 +1232,8 @@ propertynotify(XEvent *e) {
+ 			drawbars();
+ 			break;
+ 		}
+-		if(ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName]) {
++		if(ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName])
+ 			updatetitle(c);
+-			if(c == c->mon->sel)
+-				drawbar(c->mon);
+-		}
+ 		if(ev->atom == netatom[NetWMWindowType])
+ 			updatewindowtype(c);
+ 	}
