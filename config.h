@@ -66,7 +66,7 @@ static const char colors[NUMCOLORS][ColLast][13] = {
 static const char colors[NUMCOLORS][ColLast][13] = {
     /* border    fg         bg */
     { "#93a1a1", "#93a1a1", "#fdf6e3" },        /* [0]  01 - Client normal */
-    { "#af8700", "#268bd2", "#fdf6e3" },        /* [1]  02 - Client selected */
+    { "#268bd2", "#268bd2", "#fdf6e3" },        /* [1]  02 - Client selected */
     { "#93a1a1", "#dc322f", "#fdf6e3" },        /* [2]  03 - Client urgent */
     { "#93a1a1", "#93a1a1", "#fdf6e3" },        /* [3]  04 - Client occupied */
     { "#fdf6e3", "#dc322f", "#fdf6e3" },        /* [4]  05 - Red */
@@ -85,8 +85,8 @@ static const Layout layouts[] = {
     /* symbol   gaps    arrange */
     { "",      True,   tile },
     { "",      True,   NULL },
-    { "",      False,  monocle },
-    { "",      False,  gaplessgrid },
+    { "",      True,   monocle },
+    { "",      True,   gaplessgrid },
     { "",      True,   bstack },
 };
 
@@ -123,7 +123,7 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#002b36", "
 #endif
 
 #ifdef SOLARIZED_LIGHT
-static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "-nf", "#93a1a1", "-sb", "#fdf6e3", "-sf", "#657b83", "-h", "22", NULL }; 
+static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "-nf", "#93a1a1", "-sb", "#fdf6e3", "-sf", "#268bd2", "-h", "22", NULL }; 
 #endif
 
 static const char *term[] = { "st", NULL };
