@@ -128,13 +128,13 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#002b36", "
 static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "-nf", "#93a1a1", "-sb", "#fdf6e3", "-sf", "#268bd2", "-h", "22", NULL }; 
 #endif
 
-static const char *term[] = { "st", NULL };
+static const char *term[] = { "urxvtc", NULL };
 static const char *webb[] = { "firefox", NULL };
 static const char *mail[] = { "thunderbird", NULL };
-static const char *edit[] = { "st", "-e", "nvim", NULL };
-static const char *mdia[] = { "st", "-e", "ncmpcpp", NULL };
+static const char *edit[] = { "urxvtc", "-e", "nvim", NULL };
+static const char *mdia[] = { "urxvtc", "-e", "ncmpcpp", NULL };
 static const char *file[] = { "thunar", NULL };
-//static const char *htop[] = { "st", "-e", "htop", NULL};
+//static const char *htop[] = { "urxvtc", "-e", "htop", NULL};
 
 // Media keys
 static const char *vold[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
