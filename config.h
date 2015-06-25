@@ -115,7 +115,9 @@ static const Rule rules[] = {
     { "Steam",		"Steam",    "Steam",    1 << 6,     False,      -1 },
     { "VirtualBox",     NULL,       NULL,       1 << 3,     False,      -1 },
     { "Popcorntime",    NULL,       NULL,       1 << 5,     False,      -1 },
-    { "Transmission",   NULL,       NULL,       1 << 3,     False,      -1 }
+    { "Transmission",   NULL,       NULL,       1 << 3,     False,      -1 },
+    { "mpv",            "gl",       NULL,       1 << 5,     False,      -1 },
+    { "Vlc",            "vlc",      NULL,       1 << 5,     False,      -1 }
 };
 
 #ifdef SOLARIZED_DARK
@@ -127,9 +129,9 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "
 #endif
 
 static const char *term[] = { "st", NULL };
-static const char *webb[] = { "iceweasel", NULL };
-static const char *mail[] = { "icedove", NULL };
-static const char *edit[] = { "emacsclient", "-c", NULL };
+static const char *webb[] = { "firefox", NULL };
+static const char *mail[] = { "thunderbird", NULL };
+static const char *edit[] = { "st", "-e", "nvim", NULL };
 static const char *mdia[] = { "st", "-e", "ncmpcpp", NULL };
 static const char *file[] = { "thunar", NULL };
 //static const char *htop[] = { "st", "-e", "htop", NULL};
