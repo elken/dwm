@@ -95,7 +95,7 @@ static const Tag tags[] = {
     { "",    &layouts[0],    -1,     -1 },
     { "",    &layouts[3],    -1,     -1 },
     { "",    &layouts[2],    -1,     -1 },
-    { "",    &layouts[0],    -1,     -1 },
+    { "",    &layouts[2],    -1,     -1 },
     { "",    &layouts[1],    -1,     -1 },
     { "",    &layouts[2],    -1,     -1 },
     { "",    &layouts[2],    -1,     -1 },
