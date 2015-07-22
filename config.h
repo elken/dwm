@@ -107,16 +107,17 @@ static const Rule rules[] = {
         *	WM_NAME(STRING) = title
         */
     /* class            instance    title       tags mask   isfloating  monitor */
-    { "Iceweasel", 	NULL, 	    NULL,       1 << 1,     False,      -1 },
-    { "Chromium", 	NULL, 	    NULL,       1 << 1,     False,      -1 },
-    { "Icedove",   	NULL,       NULL,       1 << 2,     False,      -1 },
-    { "Thunderbird",   	NULL,       NULL,       1 << 2,     False,      -1 },
-    { "Steam",		"Steam",    "Steam",    1 << 6,     False,      -1 },
-    { "VirtualBox",     NULL,       NULL,       1 << 3,     False,      -1 },
-    { "Popcorntime",    NULL,       NULL,       1 << 5,     False,      -1 },
-    { "Transmission",   NULL,       NULL,       1 << 3,     False,      -1 },
-    { "mpv",            "gl",       NULL,       1 << 5,     False,      -1 },
-    { "Vlc",            "vlc",      NULL,       1 << 5,     False,      -1 }
+    { "Iceweasel", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "Chromium", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "Icedove",   	NULL,       NULL,           1 << 2,     False,      -1 },
+    { "Thunderbird",   	NULL,       NULL,           1 << 2,     False,      -1 },
+    { "Steam",		"Steam",    "Steam",        1 << 6,     False,      -1 },
+    { "VirtualBox",     NULL,       NULL,           1 << 3,     False,      -1 },
+    { "Popcorntime",    NULL,       NULL,           1 << 5,     False,      -1 },
+    { "Transmission",   NULL,       NULL,           1 << 3,     False,      -1 },
+    { "mpv",            "gl",       NULL,           1 << 5,     False,      -1 },
+    { NULL,             NULL,       "plaidchat",    1 << 2,     False,      -1 },
+    { "Vlc",            "vlc",      NULL,           1 << 5,     False,      -1 }
 };
 
 #ifdef SOLARIZED_DARK
@@ -127,11 +128,11 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#002b36", "
 static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "-nf", "#93a1a1", "-sb", "#fdf6e3", "-sf", "#268bd2", "-h", "22", NULL }; 
 #endif
 
-static const char *term[] = { "st", NULL };
+static const char *term[] = { "urxvtc", NULL };
 static const char *webb[] = { "chromium", NULL };
 static const char *mail[] = { "thunderbird", NULL };
 static const char *edit[] = { "gvim", NULL };
-static const char *mdia[] = { "st", "-e", "ncmpcpp", NULL };
+static const char *mdia[] = { "urxvtc", "-e", "ncmpcpp", NULL };
 static const char *file[] = { "thunar", NULL };
 //static const char *htop[] = { "st", "-e", "htop", NULL};
 
