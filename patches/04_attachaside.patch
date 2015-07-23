@@ -1,0 +1,57 @@
+diff --git a/dwm.c b/dwm.c
+index 1bbb4b3..b2aa1c8 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -146,6 +146,7 @@ static Bool applysizehints(Client *c, int *x, int *y, int *w, int *h, Bool inter
+ static void arrange(Monitor *m);
+ static void arrangemon(Monitor *m);
+ static void attach(Client *c);
++static void attachaside(Client *c);
+ static void attachstack(Client *c);
+ static void buttonpress(XEvent *e);
+ static void checkotherwm(void);
+@@ -401,6 +402,17 @@ attach(Client *c) {
+ }
+ 
+ void
++attachaside(Client *c) {
++	Client *at = nexttiled(c->mon->clients);
++	if(c->mon->sel == NULL || c->mon->sel->isfloating || !at) {
++		attach(c);
++		return;
++	}
++	c->next = at->next;
++	at->next = c;
++}
++
++void
+ attachstack(Client *c) {
+ 	c->snext = c->mon->stack;
+ 	c->mon->stack = c;
+@@ -1051,7 +1063,7 @@ manage(Window w, XWindowAttributes *wa) {
+ 		c->isfloating = c->oldstate = trans != None || c->isfixed;
+ 	if(c->isfloating)
+ 		XRaiseWindow(dpy, c->win);
+-	attach(c);
++	attachaside(c);
+ 	attachstack(c);
+ 	XChangeProperty(dpy, root, netatom[NetClientList], XA_WINDOW, 32, PropModeAppend,
+ 	                (unsigned char *) &(c->win), 1);
+@@ -1383,7 +1395,7 @@ sendmon(Client *c, Monitor *m) {
+ 	detachstack(c);
+ 	c->mon = m;
+ 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+-	attach(c);
++	attachaside(c);
+ 	attachstack(c);
+ 	focus(NULL);
+ 	arrange(NULL);
+@@ -1818,7 +1830,7 @@ updategeom(void) {
+ 					m->clients = c->next;
+ 					detachstack(c);
+ 					c->mon = mons;
+-					attach(c);
++					attachaside(c);
+ 					attachstack(c);
+ 				}
+ 				if(m == selmon)

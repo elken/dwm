@@ -1,0 +1,14 @@
+--- dwm.c.orig	2015-06-21 17:00:38.286217538 +0100
++++ dwm.c	2015-06-21 17:04:43.639317123 +0100
+@@ -715,10 +715,8 @@ drawbar(Monitor *m) {
+ 	x = 0;
+ 	for(i = 0; i < LENGTH(tags); i++) {
+ 		w = TEXTW(tags[i]);
+-		drw_setscheme(drw, m->tagset[m->seltags] & 1 << i ? &scheme[SchemeSel] : &scheme[SchemeNorm]);
++		drw_setscheme(drw, &scheme[m->tagset[m->seltags] & 1 << i) ? 10 : (urg & 1 << i ? 11 : (occ & 1 << i ? 12 : 9))]);
+ 		drw_text(drw, x, 0, w, bh, tags[i], urg & 1 << i);
+-		drw_rect(drw, x, 0, w, bh, m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+-		           occ & 1 << i, urg & 1 << i);
+ 		x += w;
+ 	}
+ 	w = blw = TEXTW(m->ltsymbol);

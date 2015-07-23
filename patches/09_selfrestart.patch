@@ -1,0 +1,27 @@
+--- dwm.c.orig	2015-06-21 17:11:43.191871154 +0100
++++ dwm.c	2015-06-21 17:13:45.572830971 +0100
+@@ -200,6 +200,7 @@ static void run(void);
+ static void runorraise(const Arg *arg);
+ static void scan(void);
+ static Bool sendevent(Client *c, Atom proto);
++static void self_restart(const Arg *arg);
+ static void sendmon(Client *c, Monitor *m);
+ static void setclientstate(Client *c, long state);
+ static void setfocus(Client *c);
+@@ -1464,6 +1465,16 @@ scan(void) {
+ }
+ 
+ void
++self_restart(const Arg *arg) {
++    char* const argv[] = {(char*)dwmpath, NULL};
++
++    if(argv[0] == NULL) {
++        return;
++    }
++
++    execv(argv[0], argv);
++}
++void
+ sendmon(Client *c, Monitor *m) {
+ 	if(c->mon == m)
+ 		return;
