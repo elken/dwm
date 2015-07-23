@@ -107,17 +107,18 @@ static const Rule rules[] = {
         *	WM_NAME(STRING) = title
         */
     /* class            instance    title       tags mask   isfloating  monitor */
-    { "Iceweasel", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
-    { "Chromium", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
-    { "Icedove",   	NULL,       NULL,           1 << 2,     False,      -1 },
-    { "Thunderbird",   	NULL,       NULL,           1 << 2,     False,      -1 },
-    { "Steam",		"Steam",    "Steam",        1 << 6,     False,      -1 },
-    { "VirtualBox",     NULL,       NULL,           1 << 3,     False,      -1 },
-    { "Popcorntime",    NULL,       NULL,           1 << 5,     False,      -1 },
-    { "Transmission",   NULL,       NULL,           1 << 3,     False,      -1 },
-    { "mpv",            "gl",       NULL,           1 << 5,     False,      -1 },
-    { NULL,             NULL,       "plaidchat",    1 << 2,     False,      -1 },
-    { "Vlc",            "vlc",      NULL,           1 << 5,     False,      -1 }
+    { "Iceweasel", 	        NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "Google-chrome-stable",   NULL,       NULL,           1 << 5,     False,      -1 },
+    { "Chromium", 	        NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "Icedove",   	        NULL,       NULL,           1 << 2,     False,      -1 },
+    { "Thunderbird",   	        NULL,       NULL,           1 << 2,     False,      -1 },
+    { "Steam",		        "Steam",    "Steam",        1 << 6,     False,      -1 },
+    { "VirtualBox",             NULL,       NULL,           1 << 3,     False,      -1 },
+    { "Popcorntime",            NULL,       NULL,           1 << 5,     False,      -1 },
+    { "Transmission",           NULL,       NULL,           1 << 3,     False,      -1 },
+    { "mpv",                    "gl",       NULL,           1 << 5,     False,      -1 },
+    { NULL,                     NULL,       "plaidchat",    1 << 2,     False,      -1 },
+    { "Vlc",                    "vlc",      NULL,           1 << 5,     False,      -1 }
 };
 
 #ifdef SOLARIZED_DARK
@@ -131,10 +132,9 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "
 static const char *term[] = { "urxvtc", NULL };
 static const char *webb[] = { "chromium", NULL };
 static const char *mail[] = { "thunderbird", NULL };
-static const char *edit[] = { "gvim", NULL };
+static const char *edit[] = { "emacsclient" ,"-c", "--socket-name", "/tmp/emacs1000/server", NULL };
 static const char *mdia[] = { "urxvtc", "-e", "ncmpcpp", NULL };
 static const char *file[] = { "thunar", NULL };
-//static const char *htop[] = { "st", "-e", "htop", NULL};
 
 // Media keys
 static const char *vold[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
@@ -146,6 +146,7 @@ static const char *prev[] = { "mpc", "prev", NULL };
 static const char *stop[] = { "mpc", "stop", NULL };
 static const char *bklu[] = { "xbacklight", "-steps", "1", "-time", "0", "-inc", "5", NULL };
 static const char *bkld[] = { "xbacklight", "-steps", "1", "-time", "0", "-dec", "5", NULL };
+static const char *prts[] = { "xfce4-screenshooter", NULL};
 
 static Key keys[] = {
     { ALTKEY,           XK_p,                       spawn,          {.v = menu } },
@@ -164,6 +165,7 @@ static Key keys[] = {
     {0,                 XF86XK_AudioStop,           spawn,          {.v = stop } },
     {0,                 XF86XK_MonBrightnessUp,     spawn,          {.v = bklu } },
     {0,                 XF86XK_MonBrightnessDown,   spawn,          {.v = bkld } },
+    {0,                 XK_Print,                   spawn,          {.v = prts } },
     { ALTKEY|ShiftMask, XK_F12,                     quit,           {0} },
     { ALTKEY|ShiftMask, XK_BackSpace,               self_restart,   {0} },
     { ALTKEY|ShiftMask, XK_b,                       togglebar,      {0} },
