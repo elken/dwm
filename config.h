@@ -107,18 +107,17 @@ static const Rule rules[] = {
         *	WM_NAME(STRING) = title
         */
     /* class            instance    title       tags mask   isfloating  monitor */
-    { "Iceweasel", 	        NULL, 	    NULL,           1 << 1,     False,      -1 },
-    { "Google-chrome-stable",   NULL,       NULL,           1 << 5,     False,      -1 },
-    { "Chromium", 	        NULL, 	    NULL,           1 << 1,     False,      -1 },
-    { "Icedove",   	        NULL,       NULL,           1 << 2,     False,      -1 },
-    { "Thunderbird",   	        NULL,       NULL,           1 << 2,     False,      -1 },
-    { "Steam",		        "Steam",    "Steam",        1 << 6,     False,      -1 },
-    { "VirtualBox",             NULL,       NULL,           1 << 3,     False,      -1 },
-    { "Popcorntime",            NULL,       NULL,           1 << 5,     False,      -1 },
-    { "Transmission",           NULL,       NULL,           1 << 3,     False,      -1 },
-    { "mpv",                    "gl",       NULL,           1 << 5,     False,      -1 },
-    { NULL,                     NULL,       "plaidchat",    1 << 2,     False,      -1 },
-    { "Vlc",                    "vlc",      NULL,           1 << 5,     False,      -1 }
+    { "Firefox", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "Chromium", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "Icedove",   	NULL,       NULL,           1 << 2,     False,      -1 },
+    { "Thunderbird",   	NULL,       NULL,           1 << 2,     False,      -1 },
+    { "Steam",		"Steam",    "Steam",        1 << 6,     False,      -1 },
+    { "VirtualBox",     NULL,       NULL,           1 << 3,     False,      -1 },
+    { "Popcorntime",    NULL,       NULL,           1 << 5,     False,      -1 },
+    { "Transmission",   NULL,       NULL,           1 << 3,     False,      -1 },
+    { "mpv",            "gl",       NULL,           1 << 5,     False,      -1 },
+    { NULL,             NULL,       "plaidchat",    1 << 2,     False,      -1 },
+    { "Vlc",            "vlc",      NULL,           1 << 5,     False,      -1 }
 };
 
 #ifdef SOLARIZED_DARK
