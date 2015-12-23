@@ -3,4 +3,4 @@ config.*
 *.orig
 *.rej
 dwm
-
+.ycm_extra_conf.py
