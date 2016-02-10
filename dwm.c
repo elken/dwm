@@ -56,7 +56,7 @@
 #define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
 #define PREVSEL                 3000
 #define LENGTH(X)               (sizeof X / sizeof X[0])
-#define MAXCOLORS               13
+#define MAXCOLORS               17
 #define MOD(N,M)                ((N)%(M) < 0 ? (N)%(M) + (M) : (N)%(M))
 #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
 #define WIDTH(X)                ((X)->w + 2 * (X)->bw)
@@ -876,7 +876,7 @@ drawbar(Monitor *m) {
 
 	for(i = 0; i < LENGTH(tags); i++) {
 		w = TEXTW(tags[i].name);
-		drw_setscheme(drw, &scheme[(m->tagset[m->seltags] & 1 << i) ? 10 : (urg & 1 << i ? 11 : (occ & 1 << i ? 12 : 9))]);
+		drw_setscheme(drw, &scheme[(m->tagset[m->seltags] & 1 << i) ? 14 : (urg & 1 << i ? 15 : (occ & 1 << i ? 16 : 13))]);
 		drw_text(drw, x, 0, w, bh, tags[i].name, 0);
                 XSetForeground(drw->dpy, drw->gc, m == selmon && selmon->sel && selmon->sel->tags & 1 << i ? drw->scheme->fg->pix:drw->scheme->border->pix);
                 XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, bh - taglinepx, w, taglinepx);
@@ -2540,7 +2540,7 @@ updatesystray(void) {
 		wa.background_pixel  = drw->scheme->border->pix;
 #endif
 
-#ifdef SOLARIZED_DARK
+#if defined(SOLARIZED_DARK) || defined(GRUVBOX)
 		wa.background_pixel  = drw->scheme->bg->pix;
 #endif
 		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, wa.background_pixel);

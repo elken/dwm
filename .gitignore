@@ -4,3 +4,5 @@ config.*
 *.rej
 dwm
 .ycm_extra_conf.py
+src/
+pkg/
