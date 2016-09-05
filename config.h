@@ -139,7 +139,7 @@ static const Rule rules[] = {
     { "Popcorntime",    NULL,       NULL,           1 << 5,     False,      -1 },
     { "Transmission",   NULL,       NULL,           1 << 3,     False,      -1 },
     { "mpv",            "gl",       NULL,           1 << 5,     False,      -1 },
-    { "Slack",           "slack",   NULL,           1 << 2,     False,      -1 },
+    { "Slack",          "slack",   NULL,           1 << 2,     False,      -1 },
     { "Vlc",            "vlc",      NULL,           1 << 5,     False,      -1 }
 };
 
@@ -156,9 +156,9 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#282828", "
 #endif
 
 static const char *term[] = { "termite", NULL };
-static const char *webb[] = { "firefox", NULL };
+static const char *webb[] = { "google-chrome-stable", NULL };
 static const char *mail[] = { "thunderbird", NULL };
-static const char *edit[] = { "emacs", NULL };
+static const char *edit[] = { "termite", "-e", "nvim", NULL };
 static const char *mdia[] = { "termite", "-e", "ncmpcpp", NULL };
 static const char *file[] = { "thunar", NULL };
 
