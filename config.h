@@ -35,12 +35,12 @@ static const int nmaster = 1;                   /* number of clients in master a
 static const Bool resizehints = False;          /* true means respect size hints in tiled resizals */
 
 static const char *fonts[] = {
-    "Meslo LG M for Powerline:size=10",
+    "Hack:size=10",
     "FontAwesome:size=10",
     "Siji:size=10",
 };
 
-static const char dmenufont[] = "Hasklig-8";
+static const char dmenufont[] = "Hack-8";
 static const char dwmpath[] = "/home/elken/.dwm/dwm";
 
 #ifdef SOLARIZED_DARK
@@ -155,11 +155,11 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "
 static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#282828", "-nf", "#928374", "-sb", "#3c3836", "-sf", "#a89984", "-h", "22", NULL }; 
 #endif
 
-static const char *term[] = { "termite", NULL };
-static const char *webb[] = { "firefox", NULL };
+static const char *term[] = { "urxvtc", NULL };
+static const char *webb[] = { "tabbed", "surf", "-e", NULL };
 static const char *mail[] = { "thunderbird", NULL };
 static const char *edit[] = { "emacs", NULL };
-static const char *mdia[] = { "termite", "-e", "ncmpcpp", NULL };
+static const char *mdia[] = { "urxvtc", "-e", "ncmpcpp", NULL };
 static const char *file[] = { "thunar", NULL };
 
 // Media keys
