@@ -19,7 +19,7 @@ INCS = -I${X11INC} -I/usr/include/freetype2
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} -lfontconfig -lXft
 
 # flags
-CFLAGS   = -g -std=c11 -pedantic -Wall -DVERSION=\"${VERSION}\" -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS} -DGRUVBOX 
+CFLAGS   = -g -std=c11 -pedantic -Wall -DVERSION=\"${VERSION}\" -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS} -DNORD
 LDFLAGS  = -s ${LIBS}
 
 # Solaris

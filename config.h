@@ -35,13 +35,13 @@ static const int nmaster = 1;                   /* number of clients in master a
 static const Bool resizehints = False;          /* true means respect size hints in tiled resizals */
 
 static const char *fonts[] = {
-    "Hack:size=10",
-    "FontAwesome:size=10",
+    "Hack Nerd Font:size=10",
     "Siji:size=10",
 };
 
-static const char dmenufont[] = "Hack-8";
+static const char dmenufont[] = "Hack Nerd Font-8";
 static const char dwmpath[] = "/home/elken/.dwm/dwm";
+static const char termname[] = "alacritty";
 
 #ifdef SOLARIZED_DARK
 static const char colors[NUMCOLORS][ColLast][13] = {
@@ -78,6 +78,29 @@ static const char colors[NUMCOLORS][ColLast][13] = {
     { "#268bd2", "#268bd2", "#fdf6e3" },        /* [10] 0B - Bar selected*/
     { "#93a1a1", "#dc322f", "#fdf6e3" },        /* [11] 0C - Bar urgent*/
     { "#93a1a1", "#268bd2", "#fdf6e3" },        /* [12] 0D - Bar occupied*/
+};
+#endif
+
+#ifdef NORD
+static const char colors[NUMCOLORS][ColLast][17] = {
+    /* border    fg         bg */
+    { "#3b4252", "#d8dee9", "#2e3440" },        /* [0]  01 - Client normal */
+    { "#d8dee9", "#3b4252", "#2e3440" },        /* [1]  02 - Client selected */
+    { "#bf616a", "#d8dee9", "#2e3440" },        /* [2]  03 - Client urgent */
+    { "#88c0d0", "#88c0d0", "#2e3440" },        /* [3]  04 - Client occupied */
+    { "#2e3440", "#bf616a", "#2e3440" },        /* [4]  05 - Red */
+    { "#2e3440", "#ebcb8b", "#2e3440" },        /* [5]  06 - Yellow */
+    { "#2e3440", "#a3be8c", "#2e3440" },        /* [6]  07 - Green */
+    { "#2e3440", "#3b4252", "#2e3440" },        /* [7]  08 - Dark grey */
+    { "#2e3440", "#929aaa", "#2e3440" },        /* [8]  09 - Light grey */
+    { "#4c566a", "#4c566a", "#2e3440" },        /* [9]  0A - Bar normal*/
+    { "#4c566a", "#434c5e", "#2e3440" },        /* [10] 0B - Bar selected*/
+    { "#bf616a", "#bf616a", "#2e3440" },        /* [11] 0C - Bar urgent*/
+    { "#4c566a", "#8fbcbb", "#2e3440" },        /* [12] 0D - Bar occupied*/
+    { "#4c566a", "#4c566a", "#2e3440" },        /* [13] 0E - Tag normal*/
+    { "#8fbcbb", "#8fbcbb", "#2e3440" },        /* [14] 0F - Tag selected*/
+    { "#bf616a", "#bf616a", "#2e3440" },        /* [15] 10 - Tag urgent*/
+    { "#4c566a", "#d8dde9", "#2e3440" },        /* [16] 11 - Tag occupied*/
 };
 #endif
 
@@ -131,6 +154,7 @@ static const Rule rules[] = {
         */
     /* class            instance    title       tags mask   isfloating  monitor */
     { "Firefox", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
+    { "firefox", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
     { "Chromium", 	NULL, 	    NULL,           1 << 1,     False,      -1 },
     { "Icedove",   	NULL,       NULL,           1 << 2,     False,      -1 },
     { "Thunderbird",   	NULL,       NULL,           1 << 2,     False,      -1 },
@@ -155,12 +179,16 @@ static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#fdf6e3", "
 static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#282828", "-nf", "#928374", "-sb", "#3c3836", "-sf", "#a89984", "-h", "22", NULL }; 
 #endif
 
-static const char *term[] = { "urxvtc", NULL };
-static const char *webb[] = { "tabbed", "surf", "-e", NULL };
+#ifdef NORD
+static const char *menu[] = { "dmenu_run", "-fn", dmenufont, "-nb", "#2e3440", "-nf", "#d8dee9", "-sb", "#e5e9f0", "-sf", "#3b4252", "-h", "22", NULL }; 
+#endif
+
+static const char *term[] = { termname, NULL };
+static const char *webb[] = { "firefox", NULL };
 static const char *mail[] = { "thunderbird", NULL };
 static const char *edit[] = { "emacs", NULL };
-static const char *mdia[] = { "urxvtc", "-e", "ncmpcpp", NULL };
-static const char *file[] = { "thunar", NULL };
+static const char *mdia[] = { termname, "-e", "ncmpcpp", NULL };
+static const char *file[] = { termname, "-e", "ranger", NULL };
 
 // Media keys
 static const char *vold[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
