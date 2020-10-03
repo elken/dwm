@@ -1,15 +1,15 @@
-dwm - dynamic window manager
-============================
+# dwm - dynamic window manager
+
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
-Requirements
-------------
-In order to build dwm you need the Xlib header files.
+## Requirements
+
+In order to build dwm you need the Xlib header files (and xinerama libs).
 
 
-Installation
-------------
+## Installation
+
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
 
@@ -18,12 +18,19 @@ necessary as root):
 
     make clean install
 
-If you are going to use the default bluegray color scheme it is highly
-recommended to also install the bluegray files shipped in the dextra package.
+Custom themes are also included with this, controlled by build flags.
 
+Currently: 
 
-Running dwm
------------
+- -DSOLARIZED_LIGHT
+- -DSOLARIZED_DARK
+- -DGRUVBOX
+- -DNORD
+
+And Darcula coming soon
+
+## Running dwm
+
 Add the following line to your .xinitrc to start dwm using startx:
 
     exec dwm
@@ -45,7 +52,7 @@ like this in your .xinitrc:
     exec dwm
 
 
-Configuration
--------------
+## Configuration
+
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
