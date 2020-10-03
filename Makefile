@@ -51,6 +51,7 @@ install: all
 	@sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	@echo adding .desktop file to /usr/share/xsessions
+	@mkdir -p /usr/share/xsessions
 	@cp -f dwm.desktop /usr/share/xsessions
 	@chmod 644 /usr/share/xsessions/dwm.desktop
 

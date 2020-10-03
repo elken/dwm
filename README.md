@@ -25,6 +25,7 @@ Currently:
 - -DSOLARIZED_LIGHT
 - -DSOLARIZED_DARK
 - -DGRUVBOX
+- -DNORD
 
 And Darcula coming soon
 
