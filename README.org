@@ -1,0 +1,53 @@
+* DWM - Dynamic Window Manager
+dwm is an extremely fast, small and dynamic window manager for X.
+
+This repository exists as my fork of [[https://git.suckless.org/dwm][dwm]] (currently just 6.1), and as such has references and links to my own config.
+
+*CAVEAT EMPTOR*
+
+** Requirements
+
+I mostly use [[https://archlinux.org][Arch Linux]], as such package names/file paths will be tied to Arch's. If you wish to fork this, it should be quite simple to get working.
+
+** Dependencies
+
+The following packages are needed to build:
+
+- =libx11=
+- =libxft=
+- =libxinerama=
+
+A full running version also depends on the following packages:
+
+- =xorg-xsetroot=
+- =xorg-setxkbmap=
+- =xorg-xset=
+- =nitrogen=
+- =network-manager-applet=
+- =dunst=
+- =picom=
+- =gnome-screensaver=
+
+And for the status:
+
+- =sysstat=
+- =acpi=
+
+** Installation
+You /might/ have to modify =config.mk= to match any local changes (although I haven't had to). This is also /currently/ where the theme flags are specified.
+
+After making any changes, run =sudo make install clean= to install dwm and create a =dwm.desktop= file for working with login managers.
+
+** Running DWM
+
+This dwm setup depends on a number of other utilities which get run from the [[file+sys:bin/start.sh][Startup]] and [[file+sys:bin/status.sh][Status]] scripts.
+
+It also assumes it's being run through a login manager, but passing the [[file+sys:bin/start.sh][Startup]] script to =xinit= should work.
+
+** Customisation
+
+For simplicity, my =dwm.c= is already patched with everything in =patches/= but all the ordered patches should apply from a base 6.1.
+
+There also exists a number of themes (shown below)
+
+Which can be displayed with the associated flag in =config.mk=.
