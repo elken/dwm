@@ -40,9 +40,9 @@ After making any changes, run =sudo make install clean= to install dwm and creat
 
 ** Running DWM
 
-This dwm setup depends on a number of other utilities which get run from the [[file+sys:bin/start.sh][Startup]] and [[file+sys:bin/status.sh][Status]] scripts.
+This dwm setup depends on a number of other utilities which get run from the [[file:bin/start.sh][Startup]] and [[file:bin/status.sh][Status]] scripts.
 
-It also assumes it's being run through a login manager, but passing the [[file+sys:bin/start.sh][Startup]] script to =xinit= should work.
+It also assumes it's being run through a login manager, but passing the [[file:bin/start.sh][Startup]] script to =xinit= should work.
 
 ** Customisation
 
