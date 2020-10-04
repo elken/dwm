@@ -71,7 +71,7 @@ It relies on =xsetroot= to echo a large formatted string. I accept that this isn
 
 I use =gdm= as my login manager because it's simple, clean and it just works.
 
-Along with the below config, closing the lid locks the computer (and also suspends on battery)
+Along with the below config, closing the lid locks and suspends the computer.
 
 */etc/systemd/logind.conf*:
 #+name: /etc/systemd/logind.conf
@@ -94,7 +94,7 @@ HandlePowerKey=poweroff
 HandleSuspendKey=suspend
 HandleHibernateKey=hibernate
 HandleLidSwitch=suspend
-HandleLidSwitchExternalPower=lock
+HandleLidSwitchExternalPower=suspend
 HandleLidSwitchDocked=ignore
 
 #+end_src
