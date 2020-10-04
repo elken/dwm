@@ -59,6 +59,10 @@ static const char colors[NUMCOLORS][ColLast][13] = {
     { "#268bd2", "#268bd2", "#002b36" },        /* [10] 0B - Bar selected*/
     { "#286e75", "#dc322f", "#002b36" },        /* [11] 0C - Bar urgent*/
     { "#286e75", "#268bd2", "#002b36" },        /* [12] 0D - Bar occupied*/
+    { "#286e75", "#286e75", "#002b36" },        /* [13] 0E - Tag normal*/
+    { "#268bd2", "#268bd2", "#002b36" },        /* [14] 0F - Tag selected*/
+    { "#dc322f", "#dc322f", "#002b36" },        /* [15] 10 - Tag urgent*/
+    { "#286e75", "#268bd2", "#002b36" },        /* [16] 11 - Tag occupied*/
 };
 #endif
 
@@ -78,6 +82,10 @@ static const char colors[NUMCOLORS][ColLast][13] = {
     { "#268bd2", "#268bd2", "#fdf6e3" },        /* [10] 0B - Bar selected*/
     { "#93a1a1", "#dc322f", "#fdf6e3" },        /* [11] 0C - Bar urgent*/
     { "#93a1a1", "#268bd2", "#fdf6e3" },        /* [12] 0D - Bar occupied*/
+    { "#93a1a1", "#93a1a1", "#fdf6e3" },        /* [13] 0E - Tag normal*/
+    { "#268bd2", "#268bd2", "#fdf6e3" },        /* [14] 0F - Tag selected*/
+    { "#dc322f", "#dc322f", "#fdf6e3" },        /* [15] 10 - Tag urgent*/
+    { "#93a1a1", "#268bd2", "#fdf6e3" },        /* [16] 11 - Tag occupied*/
 };
 #endif
 

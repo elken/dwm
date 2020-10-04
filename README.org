@@ -19,14 +19,14 @@ The following packages are needed to build:
 
 A full running version also depends on the following packages:
 
-- =xorg-xsetroot=
-- =xorg-setxkbmap=
-- =xorg-xset=
-- =nitrogen=
-- =network-manager-applet=
-- =dunst=
-- =picom=
-- =gnome-screensaver=
+- =xorg-xsetroot= (for status and dwm needs it)
+- =xorg-setxkbmap= (for startup)
+- =xorg-xset= (for startup)
+- =nitrogen= (setting wallpaper)
+- =network-manager-applet= (network management)
+- =dunst= (notification daemon)
+- =picom= (compositor)
+- =gnome-screensaver= (for screen lock)
 
 And for the status:
 
@@ -50,4 +50,51 @@ For simplicity, my =dwm.c= is already patched with everything in =patches/= but 
 
 There also exists a number of themes (shown below)
 
-Which can be displayed with the associated flag in =config.mk=.
+| [[assets/nord.png]] | [[assets/gruvbox.png]]    | [[assets/solarized_dark.png]]           | [[assets/solarized_light.png]]            |
+| *Nord* (-DNORD) | *Gruvbox* (-DGRUVBOX) | *Solarized Dark* (-DSOLARIZED_DARK) | *Solarized Light* (-DSOLARIZED_LIGHT) |
+
+Which can be displayed with the associated flag in =config.mk=. All included themes also styles clients appropriately, as well as dmenu.
+
+*** Adding a theme
+
+If you wish to contribute your own theme, add an appropriate =#IFDEF THEMENAME= block in [[file:config.h][config.h]] to specify the colours, and further down for dmenu.
+
+You also need to adjust the block in =dwm.c= within =updatesystray= to specify the background.
+
+** Status
+
+The status area is a simple script with a number of functions, currently just CPU, RAM, time, speaker status and battery (unless full).
+
+It relies on =xsetroot= to echo a large formatted string. I accept that this isn't the best way to write this /however/ programmers are lazy.
+
+** Screen Locking
+
+I use =gdm= as my login manager because it's simple, clean and it just works.
+
+Along with the below config, closing the lid locks the computer (and also suspends on battery)
+
+*/etc/systemd/logind.conf*:
+#+name: /etc/systemd/logind.conf
+#+begin_src conf
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+#
+# Entries in this file show the compile time defaults.
+# You can change settings by editing this file.
+# Defaults can be restored by simply deleting this file.
+#
+# See logind.conf(5) for details.
+
+[Login]
+HandlePowerKey=poweroff
+HandleSuspendKey=suspend
+HandleHibernateKey=hibernate
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=lock
+HandleLidSwitchDocked=ignore
+
+#+end_src
