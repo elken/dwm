@@ -15,11 +15,13 @@ getBattery() {
         if [ ${perc} -eq "100" ]; then
             echo -ne ""
         elif [ ${perc} -le "100" ]; then
-            echo -ne "${green}"
+            echo -ne "${green} "
+        elif [ ${perc} -le "75" ]; then
+            echo -ne "${yellow} "
         elif [ ${perc} -le "50" ]; then
-            echo -ne "${yellow}"
+            echo -ne "${yellow} "
         elif [ ${perc} -le "25" ]; then
-            echo -ne "${red} ${time}"
+            echo -ne "${red}  ${time}"
         fi
     fi
 }
