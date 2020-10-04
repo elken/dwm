@@ -2601,7 +2601,7 @@ updatesystray(void) {
 		wa.background_pixel  = drw->scheme->border->pix;
 #endif
 
-#if defined(SOLARIZED_DARK) || defined(GRUVBOX)
+#if defined(SOLARIZED_DARK) || defined(GRUVBOX) || defined(NORD)
 		wa.background_pixel  = drw->scheme->bg->pix;
 #endif
 		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, wa.background_pixel);
