@@ -108,10 +108,10 @@ getMusic() {
 }
 
 getTime() {
-    tme="$(date '+%A %D %H:%M')"
+    tme="$(date '+%A %d/%m/%y %H:%M')"
     echo -ne "${blue}  ${normal}${tme} "
 }
 
 while true; do
-    xsetroot -name "$(getUpdates) $(getBattery) $(getSound) $(getCPU)  $(getMEM)  $(getTime)  "
+    xsetroot -name "$(getUpdates) $(getBattery) $(getSound) $(getCPU)  $(getMEM)  $(getTime)"
 done
