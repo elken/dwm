@@ -10,20 +10,21 @@ getBattery() {
     perc=$(acpi -b | awk '/Battery/ {print $4}' | cut -d% -f1)
     time=$(acpi -b | awk '/Battery/ {print " (" substr($5,1,5)")"}')
     is_charging=$(acpi -a | awk '/Adapter/ {print $3}')
+    battery=""
 
     if [ "${is_charging}" != "on-line" ]; then
-        if [ ${perc} -eq "100" ]; then
-            echo -ne ""
-        elif [ ${perc} -le "100" ]; then
-            echo -ne "${green} "
-        elif [ ${perc} -le "75" ]; then
-            echo -ne "${yellow} "
+        if [ ${perc} -le "25" ]; then
+            battery="${red}${time}"
         elif [ ${perc} -le "50" ]; then
-            echo -ne "${yellow} "
-        elif [ ${perc} -le "25" ]; then
-            echo -ne "${red}  ${time}"
+            battery="${yellow}${time}"
+        elif [ ${perc} -le "75" ]; then
+            battery="${yellow}${time}"
+        elif [ ${perc} -le "100" ]; then
+            battery="${green}${time}"
         fi
     fi
+
+    echo -ne "${battery}"
 }
 
 getCPU() {
@@ -59,7 +60,7 @@ getUpdates() {
     if [ $count -le 0 ]; then
         echo -ne ""
     else
-        echo -ne "${blue} ${normal}${count}"
+        echo -ne "${blue}  ${normal}${count} "
     fi
 }
 
@@ -112,5 +113,5 @@ getTime() {
 }
 
 while true; do
-    xsetroot -name "$(getUpdates)$(getBattery) $(getSound) $(getCPU)  $(getMEM)  $(getTime)  "
+    xsetroot -name "$(getUpdates) $(getBattery) $(getSound) $(getCPU)  $(getMEM)  $(getTime)  "
 done

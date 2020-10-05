@@ -35,11 +35,11 @@ static const int nmaster = 1;                   /* number of clients in master a
 static const Bool resizehints = False;          /* true means respect size hints in tiled resizals */
 
 static const char *fonts[] = {
-    "Hack Nerd Font:size=10",
+    "Hasklug Nerd Font:size=10",
     "Siji:size=10",
 };
 
-static const char dmenufont[] = "Hack Nerd Font-8";
+static const char dmenufont[] = "Hasklug Nerd Font-8";
 static const char dwmpath[] = "/home/elken/.dwm/dwm";
 static const char termname[] = "alacritty";
 

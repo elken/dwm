@@ -15,8 +15,11 @@ xrdb ~/.Xresources
 nitrogen --restore &
 nm-applet &
 dunst &
-picom &
+picom -b --experimental-backends --dbus &
 gnome-screensaver &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
+
 
 ~/.dwm/bin/status.sh 2> ~/.logs/status &
 ~/.dwm/dwm 2> ~/.logs/dwm
