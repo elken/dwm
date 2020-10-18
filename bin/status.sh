@@ -113,5 +113,5 @@ getTime() {
 }
 
 while true; do
-    xsetroot -name "$(getUpdates) $(getBattery) $(getSound) $(getCPU)  $(getMEM)  $(getTime)"
+    xsetroot -name "$(getUpdates) $(getBattery) $(getSound) $(getCPU)  $(getMEM)  $(getTime) "
 done

@@ -172,7 +172,8 @@ static const Rule rules[] = {
     { "Transmission",   NULL,       NULL,           1 << 3,     False,      -1 },
     { "mpv",            "gl",       NULL,           1 << 5,     False,      -1 },
     { "Slack",          "slack",   NULL,           1 << 2,     False,      -1 },
-    { "Vlc",            "vlc",      NULL,           1 << 5,     False,      -1 }
+    { "Vlc",            "vlc",      NULL,           1 << 5,     False,      -1 },
+    { "Gnome-boxes",    "gnome-boxes", NULL,     1 << 3,       False,      -1 }
 };
 
 #ifdef SOLARIZED_DARK
